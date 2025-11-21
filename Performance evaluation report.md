@@ -16,14 +16,14 @@ Comparison:
 
 Baseline numeric results:
 
-- `LinearSVC` (TF-IDF + engineered features):
+- `RandomForest` (TF-IDF + engineered features):
   - Accuracy: 0.825918
   - F1 score: 0.761406
   - Classification report (support: 51009 negative, 29861 positive):
     - class 0 — precision 0.86, recall 0.87, f1 0.86
     - class 1 — precision 0.77, recall 0.75, f1 0.76
 
-- `RandomForest` (TF-IDF + engineered features):
+- `LinearSVC` (TF-IDF + engineered features):
   - Accuracy: 0.799493
   - F1 score: 0.720059
   - Classification report (support: 51009 negative, 29861 positive):
@@ -34,8 +34,8 @@ Concise comparison table (key metrics)
 
 | Model | Accuracy | F1 (macro/approx) | Precision (pos) | Recall (pos) | AUC |
 |---|---:|---:|---:|---:|---:|
-| `LinearSVC` | 0.8259 | 0.7614 | 0.77 | 0.75 | N/A |
-| `RandomForest` | 0.7995 | 0.7201 | 0.74 | 0.70 | N/A |
+| `RandomForest` | 0.8259 | 0.7614 | 0.77 | 0.75 | N/A |
+| `LinearSVC` | 0.7995 | 0.7201 | 0.74 | 0.70 | N/A |
 | `Siamese BiLSTM (base)` | 0.8256 | ~0.7945 | 0.7031 | 0.9134 | 0.9220 |
 | `Siamese BiLSTM (tuned)` | 0.8322 | ~0.8012 | 0.7120 | 0.9162 | 0.9275 |
 
@@ -43,9 +43,9 @@ Concise comparison table (key metrics)
 Interpretation:
 - The tuned Siamese BiLSTM achieves the best overall AUC and highest recall, indicating superior semantic generalization and ranking ability. It slightly improves accuracy and precision over the base Siamese model.
 
-- `LinearSVC` produces competitive overall accuracy and F1 — it balances precision and recall better than the Siamese models on the positive class (pos precision 0.77 vs 0.71 for Siamese), but it lags in recall and AUC where semantic understanding matters.
+- `RandomForest` produces competitive overall accuracy and F1 — it balances precision and recall better than the Siamese models on the positive class (pos precision 0.77 vs 0.71 for Siamese), but it lags in recall and AUC where semantic understanding matters.
 
-- `RandomForest` is a solid, lower-cost baseline but underperforms both LinearSVC and Siamese models on F1 and recall.
+- `LinearSVC` is a solid, lower-cost baseline but underperforms both LinearSVC and Siamese models on F1 and recall.
 
 
 
